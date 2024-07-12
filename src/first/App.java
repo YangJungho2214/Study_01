@@ -1,10 +1,16 @@
 package first;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class App {
     public static void main(String[] args) throws Exception {
+
+        int index = 1;
+
+        for (String e : args) {
+            System.out.println(index + "번째 인수는 " + e + " 입니다.");
+            index ++;
+        }
 
         //인수의 갯수를 체크
         if (args.length < 3) {
@@ -15,9 +21,10 @@ public class App {
             System.exit(1);
         }
         
-        //변수 정의
+        //변수 정의 및 초기화
         BigDecimal num1 = BigDecimal.ZERO, num2 = BigDecimal.ZERO;
 
+        //첫번째 인수와 세번째 인수를 체크해서 숫자가 아니면 에러 발생
         try {
             num1 = new BigDecimal(args[0]); 
             num2 = new BigDecimal(args[2]);
@@ -38,20 +45,23 @@ public class App {
         //답 변수선언 및 초기화
         BigDecimal answer = BigDecimal.ZERO;
 
+        //calculator클래스의 객체 생성
+        math2 calc = new math2();
+
         //계산시작
         if (plus.equals("+")) {
-            answer = num1.add(num2);
+            answer = calc.add(num1, num2);
         } else if (plus.equals("-")) {
-            answer = num1.subtract(num2);
+            answer = calc.minus(num1, num2);
         } else if (plus.equals("x")) {
-            answer = num1.multiply(num2);
+            answer = calc.multi(num1, num2);
         } else if (plus.equals("/")) {
-            answer = num1.divide(num2, 2, RoundingMode.HALF_UP);
+            answer = calc.divi(num1, num2);
         } else {
             System.out.println("두번째 인수는 + - x / 만 입력해주세요.");
             System.exit(1);
         }
 
         System.out.println("결과는[" + num1 + " " + plus + " " + num2 + " = " + answer + "]입니다.");
-}
     }
+}
