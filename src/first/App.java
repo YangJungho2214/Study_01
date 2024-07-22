@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class App {
     public static void main(String[] args) throws Exception {
 
+        //인수값 확인
         int index = 1;
 
         for (String e : args) {
