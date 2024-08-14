@@ -17,8 +17,15 @@ public class animal {
         this.color = color;
     }
 
-    //sound 메소드 생성
+    // sound 메소드 생성
     public void sound() {
         System.out.println("Sound");
+    }
+
+    // 출력
+    public void displayInfo() {
+        System.out.println("age: " + age);
+        System.out.println("kind: " + kind);
+        System.out.println("color: " + color);
     }
 }
